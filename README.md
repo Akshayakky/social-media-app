@@ -1,4 +1,4 @@
-Social Media Application
+Social Media Application - 
 This project is a REST API-based social media application allowing users to join groups, create posts with media attachments, like posts, and add comments. Designed with a modular architecture, the application follows best practices to ensure scalability and maintainability for future enhancements. The project is implemented using Spring Boot and Java.
 
 Project Overview
