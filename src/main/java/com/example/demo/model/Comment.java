@@ -1,20 +1,52 @@
 package com.example.demo.model;
 
-import org.springframework.data.annotation.Id;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
-//@Entity
-//@Table(name = "Comment")
+@Data
+@Entity
+@Table(name = "comment")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long commentId;
-    Date time;
-    int userId;
-    String text;
+    private Date time;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    private String content;
+
+    public long getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(long commentId) {
+        this.commentId = commentId;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

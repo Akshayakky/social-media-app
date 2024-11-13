@@ -5,14 +5,20 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
     @Autowired
     UserRepository userRepository;
 
-    public User getUser(String userId) {
-        return userRepository.findById(Long.valueOf(userId)).get();
+    public User getUser(Long userId) {
+        Optional<User> user = userRepository.findById(userId);
+        if(user.isEmpty()) {
+            throw new RuntimeException("User not found!");
+        }
+        return user.get();
     }
 
     public User addUser(User user) {
