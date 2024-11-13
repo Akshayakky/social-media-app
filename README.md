@@ -85,7 +85,7 @@ curl --location 'http://localhost:8080/api/social/v1/users/31/feed?page=0&size=1
 Installation and Setup
 Clone the Repository
 
-git clone https://github.com/your-username/social-media-app.git
+git clone https://github.com/Akshayakky/social-media-app.git
 Configure Database Set up your database configurations in application.properties.
 
 Run the Application
