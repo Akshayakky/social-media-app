@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,6 +37,7 @@ public class FeedService {
      * @param size the number of items per page
      * @return a paginated list of posts
      */
+    @Transactional(readOnly = true)
     public Page<Post> getUserFeed(Long userId, int page, int size) {
         logger.info("Fetching feed for user with ID: {}, page: {}, size: {}", userId, page, size);
 

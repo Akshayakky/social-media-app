@@ -8,13 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class PostService {
 
     private static final Logger logger = LoggerFactory.getLogger(PostService.class);
@@ -28,7 +29,6 @@ public class PostService {
     @Autowired
     private CommentRepository commentRepository;
 
-    @Transactional
     public Post createPost(CreatePostRequest postRequest, User user, Long groupId) {
 
         if (groupId == null) {

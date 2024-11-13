@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Collections;
@@ -59,6 +60,7 @@ public class GroupService {
      * @param groupName the name of the group
      * @return the created group
      */
+    @Transactional
     public Group createGroup(String groupName) {
         logger.info("Creating group with name: {}", groupName);
 

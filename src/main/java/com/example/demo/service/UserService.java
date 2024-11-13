@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,6 +46,7 @@ public class UserService {
      * @param request UserRequest containing user details and group IDs
      * @return The created user
      */
+    @Transactional
     public User createUser(UserRequest request) {
         logger.info("Creating user: {}", request.getFirstName() + " " + request.getLastName());
         User user = new User();
@@ -62,7 +64,7 @@ public class UserService {
         }
 
         user.setGroups(groups);
-        userRepository.save(user);
+        addUser(user);
 
         // Update each group with the new user
         for (Group group : groups) {
