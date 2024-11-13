@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface GroupRepository extends JpaRepository<Group, Long> {
 
-//    @Query("SELECT p FROM Post p JOIN p.groups g WHERE g IN :groups ORDER BY p.createdAt DESC")
-//    Page<Post> findPostsByGroupsSortedByTime(@Param("groups") List<Group> groups, Pageable pageable);
+    @Query("SELECT p FROM Post p WHERE p.group.groupId IN :groupIds ORDER BY p.createdAt DESC")
+    Page<Post> findPostsByGroupsSortedByTime(@Param("groupIds") List<Long> groupIds, Pageable pageable);
 }

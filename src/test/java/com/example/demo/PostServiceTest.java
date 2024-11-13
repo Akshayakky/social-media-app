@@ -4,7 +4,6 @@ import com.example.demo.model.CreatePostRequest;
 import com.example.demo.model.Post;
 import com.example.demo.model.User;
 import com.example.demo.repository.PostRepository;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.PostService;
 import com.example.demo.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -40,7 +39,7 @@ public class PostServiceTest {
 
         User user = userService.getUser(1L);
 
-        Post createdPost = postService.createPost(request, user);
+        Post createdPost = postService.createPost(request, user, 1L);
 
         assertEquals("Test Caption", createdPost.getCaption());
         assertEquals(1L, createdPost.getPostId());

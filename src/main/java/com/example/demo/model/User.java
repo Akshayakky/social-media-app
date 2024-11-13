@@ -1,8 +1,6 @@
 package com.example.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +22,12 @@ public class User {
     private String firstName;
     private String lastName;
     private String profileImageUrl;
+
     @Enumerated(EnumType.STRING)
     private UserType type;
-    @ManyToMany
-    @JoinTable(
-            name = "user_groups",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id"))
-    @JsonManagedReference
+
+    @ManyToMany(mappedBy = "users")
+    @JsonIgnore
     private List<Group> groups;
 
     public long getUserId() {

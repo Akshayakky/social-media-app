@@ -9,7 +9,6 @@ public class CreatePostRequest {
     private String caption;
     private Long userId;
     private List<Media> media;
-    private Long groupId;
 
     public String getCaption() {
         return caption;
@@ -33,13 +32,5 @@ public class CreatePostRequest {
 
     public void setMedia(List<Media> media) {
         this.media = media;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
     }
 }
