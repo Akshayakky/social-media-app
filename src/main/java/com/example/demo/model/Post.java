@@ -9,16 +9,16 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name = "Post")
+//@Entity
+//@Table(name = "Post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long postId;
     List<Integer> media;
     Date createdAt;
-    List<Integer> likes;
-    List<Integer> comments;
+    List<Long> likes;
+    List<Long> comments;
     int ownerId;
     String text;
 }

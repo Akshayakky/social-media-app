@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Entity
-@Table(name = "Comment")
+//@Entity
+//@Table(name = "Comment")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

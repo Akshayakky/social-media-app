@@ -1,17 +1,21 @@
 package com.example.demo.service;
 
 import com.example.demo.model.User;
-//import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-//    @Autowired
-//    UserRepository userRepository;
-//
-//    public User getUser() {
-//        return userRepository.findById(1L);
-//    }
+    @Autowired
+    UserRepository userRepository;
+
+    public User getUser(String userId) {
+        return userRepository.findById(Long.valueOf(userId)).get();
+    }
+
+    public User addUser(User user) {
+        return userRepository.save(user);
+    }
 }
