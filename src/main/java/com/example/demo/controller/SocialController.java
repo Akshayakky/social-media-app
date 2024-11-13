@@ -25,7 +25,9 @@ public class SocialController {
     UserService userService;
 
     @GetMapping("feed/{userId}")
-    public User getFeed(@PathVariable String userId) {
-        return userService.getUser();
+    public ResponseEntity<User> getFeed(@PathVariable String userId) {
+        User user = new User();
+        user.setFirstName("Ajshay");
+        return ResponseEntity.ok(user);
     }
 }
